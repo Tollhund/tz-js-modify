@@ -6,26 +6,31 @@
 		let iframeEl = document.createElement("iframe");
 		let img = document.createElement("img");
 		let iframeCont;
-
+		
+		document.body.setAttribute("style", "position: relative; height: 100%");
 		iframeEl.src = "./frame/index.html";
 		iframeEl.setAttribute("frameborder", 0);
 		iframeEl.setAttribute("scrolling", "no");
+		
 		//Styling iframe
 		iframeEl.setAttribute("style", 
 			`width: 100% !important; 
 			height: 100% !important;
 			pointer-events: auto !important;
-			position: relative !important;
+			position: realtive !important;
 			opacity: 100 !important;
 			` 
 			)
+		let iframeH = iframeEl.style.height;
+		let iframeW = iframeEl.style.width;
+		console.log(iframeH)
 
 		content.append(iframeEl);
 		wrapper.append(content);	
 		document.body.append(wrapper);
 
 		//Styling html, body
-		document.body.setAttribute("style", "height: 100%; min-height: 100%;");
+		//document.body.setAttribute("style", "height: 100%; min-height: 100%;");
 		 
 
 		window.onload = () => {
@@ -37,10 +42,12 @@
 			
 			//Styling div container
 			main[0].parentElement.parentElement.setAttribute("style", 
-				`position: sticky !important; 
+				`position: fixed !important; 
 				bottom: 0;
+				height: 25%;
+				width: 100%;
 				margin: auto !important;`);
-			main[0].parentElement.setAttribute("style","margin: 0 !important;")
+			main[0].parentElement.setAttribute("style","height: 100%; margin: 0 !important;")
 		}
 
 })()
